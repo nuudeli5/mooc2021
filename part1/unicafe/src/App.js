@@ -31,14 +31,33 @@ const GetAverage = (props) => {
     if (props.average[0] + props.average[1] + props.average[2] > 0) {
         return (
             <div>
-                <h2> Statistics </h2>
-                <StatisticLine text="Good reviews:" grade={good} />
-                <StatisticLine text="Neutral reviews:" grade={neutral} />
-                <StatisticLine text="Bad reviews:" grade={bad} />
 
-                <StatisticLine text="All:" grade={good + neutral + bad} />
-                <StatisticLine text="Average:" grade={(good + -(bad)) / (good + neutral + bad)} />
-                <StatisticLine text="Positive:" grade={(good / (good + neutral + bad) * 100)} />
+                <h2> Statistics </h2>
+
+                <table >
+                    <tbody>
+                    <tr>
+                            <td> Good reviews:</td>  <td>
+                                <StatisticLine text=" " grade={good} /> </td>
+                            </tr><tr>
+                            <td> Neutral reviews:</td><td>
+                                <StatisticLine text=" " grade={neutral} /> </td>
+                            </tr><tr>
+                            <td> Bad reviews:</td> <td>
+                                <StatisticLine text=" " grade={bad} /> </td>
+                            </tr><tr>
+                            <td> All: </td><td>
+                                <StatisticLine text=" " grade={good + neutral + bad} /> </td>
+                        </tr><tr>
+                            <td> Average: </td><td>
+                                <StatisticLine text=" " grade={(good + -(bad)) / (good + neutral + bad)} /> </td>
+                        </tr><tr>
+                            <td> Positive: </td>
+                            <td> <StatisticLine text=" " grade={(good / (good + neutral + bad) * 100)} /> </td>
+                        </tr>
+                    </tbody>
+                </table>
+
             </div>
         )
     }
