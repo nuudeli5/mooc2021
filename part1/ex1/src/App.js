@@ -31,7 +31,7 @@ const App = () => {
     
         return (
             <div>
-                <p>{props.part} and {props.exercises} exercises have been done.</p>
+                <p>{props.part} {props.exercises} exercises have been done.</p>
             </div>
         )
     }
@@ -41,14 +41,13 @@ const App = () => {
     const Content = () => {
 
         const m1 = course.parts.map(value => 'This is ' + value.name)
-        const m2 = course.parts.map(value => ' and ' + value.exercises + ' exercises have been done')
+        const m2 = course.parts.map(value => value.exercises)
 
         return (
             <div>
-
-                <p> {m1[0]} {m2[0]} </p>
-                <p> {m1[1]} {m2[1]} </p>
-                <p> {m1[2]} {m2[2]} </p>
+                <Part part={[m1[0] +' and '  + m2[0]]} />
+                <Part part={[m1[1] + ' and ' + m2[1]]} />
+                <Part part={[m1[2] + ' and ' + m2[2]]} />
             </div>
         )
     }
