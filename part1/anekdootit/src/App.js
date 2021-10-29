@@ -31,17 +31,16 @@ const App = () => {
 
 
     //setTimeout(() => setCounter(counter + 1), 1000)
+    const counter = 0
 
     const [selected, setSelected] = useState(0)
-    const [vote, setVote] = useState(0)
 
-    const increaseByOne = () => setVote(vote + 1)
 
     const random = Math.floor(Math.random() * 6)
 
-    var points = new Uint8Array(anecdotes.length); // you can add more anecdotes and not worry about this.
+    let points = new Uint8Array(anecdotes.length); // you can add more anecdotes and not worry about this.
 
-    //var points = [2,3,4,5,6,7,8]; // you can add more anecdotes and not worry about this.
+    //var points = [2,3,4,5,6,7,8]; 
 
 
     //const merged = anecdotes.reduce((obj, key, index) => ({ ...obj, [key]: points[index] }), {});
@@ -80,17 +79,19 @@ const App = () => {
         ]
     }*/
 
-    const copy = { ...points }
-
+    const copy = [ ...points ]
+    const [vote, setVote] = useState(copy[0] = copy[0] += 1)
     console.log(copy)
 
     return (
         <div>
             <p> {anecdotes[selected]} </p>
-            <p>Has {vote} Votes </p>
+            <p>Has {copy[vote]} Votes </p>
+            <p>Has {counter} Votes </p>
             <Button handleClick={() => setSelected(random)} text="Get Random" />
-            <Button handleClick={() => setVote(vote + 1)} text="Vote" />
-            <p>Has {points[0]} Votes </p>
+            <Button handleClick={() => setVote()} text="Vote" />
+            <Button handleClick={() => counter += 1} text="Counter" />
+
 
 
         </div>
